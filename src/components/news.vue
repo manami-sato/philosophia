@@ -1,13 +1,13 @@
 <template lang="pug">
-  div.news__wrap
-    span.news__wrap--ttl news
-    p.newsTxt {{newsAlt}}の写真({{newsDate}}撮影・{{newsPhotos}}枚)をアップしました。
+	div.news__wrap
+		span.news__wrap--ttl news
+		p.newsTxt {{newsAlt}}の写真({{newsDate}}撮影・{{newsPhotos}}枚)をアップしました。
 </template>
 
 <script defer>
 /* eslint-disable no-console */
 export default {
-  el: ".news__wrap",
+  // el: ".news__wrap",
   data() {
     return {
       res: [], // data全体
@@ -17,14 +17,14 @@ export default {
     };
   },
   mounted() {
-    fetch("https://click.ecc.ac.jp/ecc/msatou/Philosophia/js/products.php")
+    fetch("https://click.ecc.ac.jp/ecc/msatou/Philosophia/products.php")
       .then((res) => {
         return res.json();
       })
       .then((json) => {
-        this.newsAlt = json[json.length - 1].alt;
-        this.newsDate = json[json.length - 1].date;
-        this.newsPhotos = json[json.length - 1].imgs.length;
+        this.newsAlt = json.photo[json.photo.length - 1].alt;
+        this.newsDate = json.photo[json.photo.length - 1].date;
+        this.newsPhotos = json.photo[json.photo.length - 1].imgs.length;
       })
       .catch((err) => {
         console.log(err);

@@ -1,6 +1,6 @@
 <template lang="pug">
-  footer
-    small &copy; 2021 祢.
+	footer
+		small &copy; 2021 祢々
 </template>
 
 <script defer>

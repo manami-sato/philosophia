@@ -1,31 +1,30 @@
 <template lang="pug">
-  main
-    navigation
-    transition(name="pageFadeIn")
-      div.index__main
-        ul.index__main--img
-          li(v-for="(img, i) in res" :key="img" v-show="coverImgDisplay === i")
-            transition(name="mainImg")
-              img(v-bind:src="img" alt="Philosophia" v-show="coverImgDisplay === i")
-        div.index__main--ttl
-          h1 Philosophia
-          p 祢 Portfolio Site
-    //-       //- video(autoplay muted)
-            source(src="@/assets/img/logo.mp4",type="video/mp4")
-        news
+	main
+		navigation
+		transition(name="pageFadeIn")
+			div.index__main
+				ul.index__main--img
+					li(v-for="(img, i) in res" :key="img" v-show="coverImgDisplay === i")
+						transition(name="mainImg")
+							img(v-bind:src="img" alt="Philosophia" v-show="coverImgDisplay === i")
+				div.index__main--ttl
+					h1 Philosophia
+					p 祢々 Portfolio Site
+					video(autoplay muted)
+						source(src="https://click.ecc.ac.jp/ecc/msatou/Philosophia/media/logo.31a81ddc.mp4",type="video/mp4")
+				news
 </template>
 
 <script defer>
 import navigation from "@/components/navigation.vue";
 import news from "@/components/news.vue";
-
 export default {
   name: "Home",
   components: {
     navigation,
     news,
   },
-  el: "main",
+  // el: "main",
   head: {
     title() {
       return {
@@ -51,16 +50,14 @@ export default {
     };
   },
   mounted() {
-    // PCindex();
-    fetch(
-      "https://click.ecc.ac.jp/ecc/msatou/Philosophia_old/js/products_index.php"
-    )
+    PCindex();
+    fetch("https://click.ecc.ac.jp/ecc/msatou/Philosophia/products.php")
       .then((res) => {
         return res.json();
       })
       .then((json) => {
         // console.log(json);
-        this.res = json;
+        this.res = json.index;
       })
       .catch((err) => {
         console.log(err);
@@ -80,36 +77,36 @@ export default {
     setTimeout(mainImgSlide, 6000);
   },
 };
-// const PCindex = () => {
-//   const contents = [
-//     document.querySelector(".index__main--ttl h1"),
-//     document.querySelector(".index__main--ttl p"),
-//     document.querySelector(".index__main--img"),
-//     document.querySelector("nav"),
-//     document.querySelector(".news__wrap"),
-//   ];
-//   let count = 0;
-//   // PC版indexの処理
-//   if (window.matchMedia("(min-width:481px)").matches) {
-//     const display = (e, o, p) => {
-//       e.style.opacity = o;
-//       e.style.pointerEvents = p;
-//       if (count == 1) {
-//         e.style.transition = "1.5s opacity";
-//       }
-//     };
-//     const fadeInSet = () => {
-//       count++;
-//       for (let i = 0; i < contents.length; i++) {
-//         display(contents[i], "1", "auto");
-//       }
-//     };
-//     for (let i = 0; i < contents.length; i++) {
-//       display(contents[i], "0", "none");
-//     }
-//     setTimeout(fadeInSet, 3200);
-//   }
-// };
+const PCindex = () => {
+  const contents = [
+    document.querySelector(".index__main--ttl h1"),
+    document.querySelector(".index__main--ttl p"),
+    document.querySelector(".index__main--img"),
+    document.querySelector("nav"),
+    document.querySelector(".news__wrap"),
+  ];
+  let count = 0;
+  // PC版indexの処理
+  if (window.matchMedia("(min-width:481px)").matches) {
+    const display = (e, o, p) => {
+      e.style.opacity = o;
+      e.style.pointerEvents = p;
+      if (count == 1) {
+        e.style.transition = "1.5s opacity";
+      }
+    };
+    const fadeInSet = () => {
+      count++;
+      for (let i = 0; i < contents.length; i++) {
+        display(contents[i], "1", "auto");
+      }
+    };
+    for (let i = 0; i < contents.length; i++) {
+      display(contents[i], "0", "none");
+    }
+    setTimeout(fadeInSet, 3200);
+  }
+};
 </script>
 
 <style lang="scss">
@@ -125,7 +122,6 @@ export default {
 .mainImg-leave-to {
   opacity: 0;
 }
-
 @media screen and (min-width: 481px) {
   /* PCサイト */
   @keyframes fadeIn {

@@ -10,7 +10,7 @@
 export default {
   head: {
     meta: [
-      { name: "description", content: "祢の写真ポートフォリオサイトです。" },
+      { name: "description", content: "祢々の写真ポートフォリオサイトです。" },
       {
         name: "viewport",
         content: "width=device-width,initial-scale=1.0,minimum-scale=1.0",
@@ -21,7 +21,7 @@ export default {
       { property: "og:title", content: "Philosophia" }, //- サイト自体のタイトル
       {
         property: "og:description",
-        content: "祢の写真ポートフォリオサイトです。",
+        content: "祢々の写真ポートフォリオサイトです。",
       }, //- サイトの説明
       {
         property: "og:url",

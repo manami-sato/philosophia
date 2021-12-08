@@ -143,12 +143,12 @@ export default {
   mounted() {
     this.pageFadeInFlag = !this.pageFadeInFlag;
     // 画像リスト、モーダル
-    fetch("https://click.ecc.ac.jp/ecc/msatou/Philosophia_old/js/products.php")
+    fetch("https://click.ecc.ac.jp/ecc/msatou/Philosophia/products.php")
       .then((res) => {
         return res.json();
       })
       .then((json) => {
-        this.res = json;
+        this.res = json.photo;
       });
   },
   updated() {
@@ -209,7 +209,6 @@ function disableScroll(event) {
 @import "@/assets/scss/ress.scss";
 @import "@/assets/scss/variables.scss";
 @import "@/assets/scss/common.scss";
-
 /*--------- 写真ここから ---------*/
 .bio__wrap {
   align-items: center;
@@ -430,7 +429,6 @@ function disableScroll(event) {
 /*-------------------------------
 	スクロールここまで
 -------------------------------*/
-
 @media screen and (min-width: 481px) {
   /* PCサイト */
   /*--------- 写真ここから ---------*/

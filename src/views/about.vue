@@ -6,7 +6,7 @@
 				div.about__detail
 					div.about__detail--txt
 						p All photo by
-						span 祢
+						span 祢々
 						span Amateur photographer
 					p
 						|2001/10/23 Osaka<br>
@@ -27,10 +27,9 @@
 <script>
 import navigation from "@/components/navigation.vue";
 import foot from "@/components/foot.vue";
-
 export default {
   name: "about",
-  el: "main",
+  // el: "main",
   components: {
     navigation,
     foot,
@@ -61,7 +60,6 @@ export default {
 @import "@/assets/scss/ress.scss";
 @import "@/assets/scss/variables.scss";
 @import "@/assets/scss/common.scss";
-
 .about__wrap {
   display: flex;
   font-size: 1.3rem;
@@ -132,7 +130,6 @@ export default {
     }
   }
 }
-
 @media screen and (min-width: 481px) {
   /* PCサイト */
   .about__wrap {
@@ -227,7 +224,6 @@ export default {
       }
     }
   }
-
   footer {
     order: 4;
   }

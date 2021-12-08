@@ -15,12 +15,12 @@ const routes = [
     component: Home,
   },
   {
-    path: "/biography", //こっちで別ページを読み込み
+    path: "/ecc/msatou/Philosophia/biography", //こっちで別ページを読み込み
     name: "biography",
     component: biography,
   },
   {
-    path: "/about",
+    path: "/ecc/msatou/Philosophia/about",
     name: "about",
     component: about,
   },
