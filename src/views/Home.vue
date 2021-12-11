@@ -11,7 +11,7 @@
 					h1 Philosophia
 					p 祢々 Portfolio Site
 					video(autoplay muted)
-						source(src="https://click.ecc.ac.jp/ecc/msatou/Philosophia/media/logo.31a81ddc.mp4",type="video/mp4")
+						source(src="https://click.ecc.ac.jp/ecc/msatou/Philosophia/img/logo.mp4",type="video/mp4")
 				news
 </template>
 

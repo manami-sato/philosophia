@@ -11,7 +11,7 @@
 						p {{orderMsg[flag]}}
 				ul.bio__thumbnail
 					li(v-for="(data, i) in res" :key="data.thumbnail", @click="modalDisplay(i)").bio__thumbnail--contents
-						img(v-bind:src="data.imgs[0]", v-bind:alt="data.alt")
+						img(v-bind:src="`https://click.ecc.ac.jp/ecc/msatou/Philosophia/img/${data.thumbnail}`", v-bind:alt="data.alt")
 				foot
 		transition(name="modalFadeIn")
 			div(v-if="modalDisplayFlag" v-bind:style="('top: ' + modalHeight + 'px')").bio__modal
@@ -31,7 +31,7 @@
 				div(@click="next").bio__modal--arrow
 					div.bio__modal--next
 		a(href="#" v-if="mediaFlag").bio__scrollTop
-			img(src="https://click.ecc.ac.jp/ecc/msatou/Philosophia/img/arrow.e69aeb71.svg")
+			img(src="https://click.ecc.ac.jp/ecc/msatou/Philosophia/img/arrow.svg")
 </template>
 
 <script>
@@ -60,7 +60,7 @@ export default {
       };
     },
   },
-  el: "main",
+  // el: "main",
   data() {
     return {
       res: [], // data全体
