@@ -1,35 +1,33 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import biography from "../views/biography.vue";
-import about from "../views/about.vue";
-// views はページそれぞれ（SPA）用
-// componentsはviewsの中のvueファイルで使用する
-
+import Biography from "../views/Biography.vue";
+import About from "../views/About.vue";
 Vue.use(VueRouter);
+
+// const route = "/";
+const route = "/ecc/msatou/Philosophia/";
 
 const routes = [
   {
-    path: "/ecc/msatou/Philosophia/", //これが最初に出る（index）
+    path: `${route}`,
     name: "Home",
     component: Home,
   },
   {
-    path: "/ecc/msatou/Philosophia/biography", //こっちで別ページを読み込み
-    name: "biography",
-    component: biography,
+    path: `${route}biography`,
+    name: "Biography",
+    component: Biography,
   },
   {
-    path: "/ecc/msatou/Philosophia/about",
-    name: "about",
-    component: about,
+    path: `${route}about`,
+    name: "About",
+    component: About,
   },
 ];
 
 const router = new VueRouter({
   mode: "history",
-  // base: "/philosophia/",
-  // base: process.env.BASE_URL,
   routes,
 });
 
