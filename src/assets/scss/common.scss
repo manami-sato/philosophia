@@ -1,6 +1,5 @@
-// $baceColor:#fff;
-$baceColor: rgb(245, 245, 245);
-$accentColor: #333;
+@import "@/assets/scss/ress.scss";
+@import "@/assets/scss/variables.scss";
 
 * {
   padding: 0;
@@ -12,7 +11,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: $baceColor;
+  // background-color: $baceColor;
   color: $accentColor;
   font-family: sans-serif;
 }
@@ -23,10 +22,10 @@ li {
 a {
   text-decoration: none;
   color: $accentColor;
-  &:hover,
-  &:active {
-    color: #999999;
-  }
+  // &:hover,
+  // &:active {
+  //   color: #999999;
+  // }
 }
 
 ::selection {
@@ -64,12 +63,45 @@ a {
   }
 }
 
+path {
+  fill: $accentColor;
+}
+
+//
+// ページごとのフェードイン
+//
 .pageFadeIn-enter-active,
 .pageFadeIn-leave-active {
-  transition: opacity 0.5s, 0.5s transform;
+  transition: 0.5s opacity, 0.5s transform;
 }
 .pageFadeIn-enter,
 .pageFadeIn-leave-to {
   transform: translateX(-20px);
   opacity: 0;
+}
+
+// indexのフェードイン
+.scrollAction-leave-active {
+  // animation: scrollActionAnimation 0.5s;
+  // animation-delay: 0.1s;
+  transition: 0.5s opacity, 0.5s transform;
+}
+.scrollAction-leave-to {
+  transform: translateY(-24px);
+  opacity: 0;
+}
+
+@keyframes scrollActionAnimation {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  // 20%{
+  //   transform: translateY(0);
+  //   opacity: 0;
+  // }
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
 }
