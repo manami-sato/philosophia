@@ -1,0 +1,107 @@
+@import "@/assets/scss/ress.scss";
+@import "@/assets/scss/variables.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  // background-color: $baceColor;
+  color: $accentColor;
+  font-family: sans-serif;
+}
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: $accentColor;
+  // &:hover,
+  // &:active {
+  //   color: #999999;
+  // }
+}
+
+::selection {
+  background: #e0e0e08e;
+  color: #8a8a8a;
+}
+
+::-moz-selection {
+  //firefox
+  background: #e0e0e0;
+  color: #8a8a8a;
+}
+
+@keyframes fadeIn {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+path {
+  fill: $accentColor;
+}
+
+//
+// ページごとのフェードイン
+//
+.pageFadeIn-enter-active,
+.pageFadeIn-leave-active {
+  transition: 0.5s opacity, 0.5s transform;
+}
+.pageFadeIn-enter,
+.pageFadeIn-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+// indexのフェードイン
+.scrollAction-leave-active {
+  // animation: scrollActionAnimation 0.5s;
+  // animation-delay: 0.1s;
+  transition: 0.5s opacity, 0.5s transform;
+}
+.scrollAction-leave-to {
+  transform: translateY(-24px);
+  opacity: 0;
+}
+
+@keyframes scrollActionAnimation {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  // 20%{
+  //   transform: translateY(0);
+  //   opacity: 0;
+  // }
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}

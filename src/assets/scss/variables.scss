@@ -1,0 +1,92 @@
+$baceColor: #ffffff;
+$accentColor: #333;
+$navWidth: 80px;
+$contentsHeight: calc(100vh - 40px);
+$partsHoverColor: rgb(212, 212, 212);
+$font: "Poiret One", cursive;
+$font2: "Rajdhani", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&family=Rajdhani&display=swap");
+
+@mixin contentsSet {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(-20px);
+  display: none;
+  opacity: 0;
+}
+
+@mixin backSet {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 60px;
+  background-color: #777;
+  transition: 0.2s background-color;
+  left: 28px;
+  box-shadow: 0 0 10px $baceColor;
+}
+
+@mixin modalBorderSet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  position: relative;
+  @media screen and (min-width: 481px) {
+    height: 100vh;
+  }
+  @media screen and (max-width: 480px) {
+    transform:scale(80%);
+  }
+  &:hover {
+    &::before {
+      background-color: $partsHoverColor;
+    }
+    &::after {
+      background-color: $partsHoverColor;
+    }
+  }
+  &::before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 35px;
+    background-color: #777;
+    transition: 0.2s background-color;
+    position: absolute;
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 35px;
+    background-color: #777;
+    transition: 0.2s background-color;
+    position: absolute;
+  }
+}
+
+@mixin iconFrameSet {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent transparent #999999;
+  border-width: 60px 0 60px 60px;
+}
+
+@mixin gettingNavSet {
+  background: $partsHoverColor;
+  color: $accentColor;
+  fill: $accentColor;
+}
+
+#navSet {
+  background: $partsHoverColor;
+  color: $accentColor;
+  fill: $accentColor;
+}
